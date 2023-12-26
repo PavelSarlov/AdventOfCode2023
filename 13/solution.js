@@ -1,4 +1,4 @@
-import { getLines } from "../lib/helpers.js";
+import { getLines, transpose } from "../lib/helpers.js";
 
 const input = getLines("input.txt").reduce((a, b, i, arr) => {
   if (!b || i === arr.length - 1) {
@@ -6,17 +6,6 @@ const input = getLines("input.txt").reduce((a, b, i, arr) => {
   }
   return [...a, b];
 }, []);
-
-function transpose(pattern) {
-  let transposed = [];
-  for (let i = 0; i < pattern.length; i++) {
-    for (let j = 0; j < pattern[i].length; j++) {
-      transposed[j] = transposed[j] || "";
-      transposed[j] += pattern[i][j];
-    }
-  }
-  return transposed;
-}
 
 async function countReflections(pattern, mult, smudge) {
   for (let row = 1; row < pattern.length; row++) {
