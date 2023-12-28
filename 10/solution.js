@@ -1,4 +1,4 @@
-import { getLines } from "../lib/helpers.js";
+import { getLines, getPolygonArea } from "../lib/helpers.js";
 
 const dir = {
   up: 0,
@@ -95,15 +95,7 @@ function part2() {
     input[x][y] = 0;
   } while (current);
 
-  const area = Math.abs(
-    vertices
-      .map(
-        (_, i) =>
-          vertices[i][0] * vertices[(i + 1) % vertices.length][1] -
-          vertices[i][1] * vertices[(i + 1) % vertices.length][0],
-      )
-      .reduce((a, b) => a + b) / 2,
-  );
+  const area = getPolygonArea(vertices);
 
   return area - part1() + 1;
 }
