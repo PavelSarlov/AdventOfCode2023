@@ -20,6 +20,7 @@
   "dependencies": {
     "datastructures-js": "^13.0.0",
     "lodash": "^4.17.21",
-    "mathjs": "^12.2.1"
+    "mathjs": "^12.2.1",
+    "nerdamer": "^1.1.13"
   }
 }
